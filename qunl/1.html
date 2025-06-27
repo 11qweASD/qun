@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>桂林·同城交友群告别单身</title>
+    <title id="dynamic-title">匹配中·同城交友群告别单身</title>
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -20,7 +20,26 @@
             line-height: 1.6;
             padding-bottom: 60px;
         }
-        
+        /* ✅ 如何在这个网页也添加一个群组头像群头像样式 */
+.group-avatar-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.group-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px; /* 圆角矩形，改为 50% 可变成圆形 */
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.group-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}/*✅ 如何在这个网页也添加一个群组头像群头像样式 */
         /* 顶部图片 */
         .top-image {
             width: 100%;          /* 保持全屏宽度 */
@@ -99,7 +118,7 @@
         .member-avatar {
             width: 50px;
             height: 50px;
-            border-radius: 50%;
+            border-radius: 6px;
             background-color: #f5f5f5;
             margin: 0 auto 5px;
             overflow: hidden;
@@ -255,7 +274,15 @@
 </head>
 <body>
     <!-- 顶部图片 -->
-<img src="https://pic1.imgdb.cn/item/685b670e58cb8da5c86dbeb1.webp" class="top-image" alt="同城交友">    
+<!-- 顶部图片 -->
+<img src="https://pic1.imgdb.cn/item/685b670e58cb8da5c86dbeb1.webp" class="top-image" alt="同城交友">
+
+<!-- 群头像（添加在这里）/*✅ 如何在这个网页也添加一个群组头像群头像样式 */ -->
+<div class="group-avatar-container">
+    <div class="group-avatar">
+        <img src="https://api.aa1.cn/assets/img/favicon.png" alt="群头像">
+    </div>
+ </div><!-- 群头像（添加在这里）/*✅ 如何在这个网页也添加一个群组头像群头像样式 */ -->
     <!-- 顶部支付提示 -->
     <div class="payment-notice">
         黑羽*** 刚刚支付了9.9元
@@ -263,7 +290,7 @@
     
     <!-- 群组标题区域 -->
     <div class="group-header">
-        <h1 class="group-name">桂林·同城交友群告别单身</h1>
+        <div id="group-name" class="group-name">匹配中·同城交友群告别单身</h1>
         <div class="group-tag">同城交友群</div>
     </div>
     
@@ -308,8 +335,9 @@
                 <div class="member-name">嘴角的美...</div>
             </div>
             <div class="member">
-                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/women/9.jpg" alt="头像"></div>
-                <div class="member-name">软甜阮甜</div>
+              
+                <div class="member-avatar"><img src="https://pic1.imgdb.cn/item/685e9b7a58cb8da5c878de8f.png" alt="头像"></div>
+                <div class="member-name"></div>
             </div>
         </div>
     </div>
@@ -335,17 +363,41 @@
         </div>
     </div>
     
-    <!-- 群活动视频 -->
-    <div class="content-section">
-        <div class="section-title">群活动视频</div>
-        <div class="video-player">
-            <video width="100%" height="100%" autoplay playsinline webkit-playsinline x5-playsinline>
-                <source src="https://zb.ccq3.cn/图片/好看吗.mp4" type="video/mp4">
-                您的浏览器不支持HTML5视频
-            </video>
-        </div>
-    </div>
-    
+<!-- 群活动视频 -->
+<div class="content-section">
+  <div class="section-title">群活动视频</div>
+  <div class="video-player">
+    <video id="groupVideo" width="100%" height="100%" autoplay  playsinline webkit-playsinline x5-playsinline>
+      <source src="https://zb.ccq3.cn/图片/好看吗.mp4" type="video/mp4">
+      您的浏览器不支持 HTML5 视频
+    </video>
+  </div>
+</div>
+
+<script>
+// 微信浏览器环境下自动播放
+document.addEventListener('WeixinJSBridgeReady', function() {
+  var video = document.getElementById('groupVideo');
+  if (video) {
+    video.play();
+  }
+}, false);
+
+// 其他浏览器自动播放（带异常处理）
+document.addEventListener('DOMContentLoaded', function() {
+  var video = document.getElementById('groupVideo');
+  if (video) {
+    var promise = video.play();
+    if (promise !== undefined) {
+      promise.catch(function(error) {
+        // 自动播放失败，启用手动播放控件
+        video.controls = true;
+      });
+    }
+  }
+});
+</script>
+
 
     <!-- 入群福利 -->
     <div class="content-section">
@@ -356,32 +408,152 @@
     </div>
     
     <!-- 底部按钮 -->
-    <button class="join-button">限时￥9.9元加入</button>
+<a 
+  class="pay-button join-button" 
+  href="https://dh.ccq3.cn/2/1.html" 
+  style="
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2800px;
+    padding: 10px 0;
+    background-color: #e91e63;
+    color: #fff;
+    border-radius: 30px 30px 0 0;  /* 大圆角 */
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10000;
+  "
+  onmouseover="this.style.backgroundColor='#c2185b';"
+  onmouseout="this.style.backgroundColor='#e91e63';"
+>
+  限时￥9.9元加入
+</a>
 
-    <script>
-        // 微信浏览器可能需要用户交互后才能自动播放
-        document.addEventListener('WeixinJSBridgeReady', function() {
-            var video = document.querySelector('video');
-            if (video) {
-                video.play();
-            }
-        }, false);
 
-        // 普通浏览器的自动播放
-        document.addEventListener('DOMContentLoaded', function() {
-            var video = document.querySelector('video');
-            if (video) {
-                var promise = video.play();
-                if (promise !== undefined) {
-                    promise.catch(error => {
-                        // 自动播放被阻止，显示播放按钮
-                        video.controls = true;
-                    });
-                }
-            }
-        });
-    </script>
 
+
+<script>
+// 分享功能 - 只复制链接，美化弹窗
+function copyPageLink() {
+  const url = window.location.href;
+  const toast = document.createElement('div');
+  toast.style = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    z-index: 9999;
+    font-size: 16px;
+    font-weight: bold;
+    animation: fadeIn 0.3s ease-out;
+  `;
+ toast.innerHTML = ' 链接已复制，快去粘贴发给好友吧！';
+  document.body.appendChild(toast);
+  
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => {
+      setTimeout(() => {
+        toast.style.animation = 'fadeOut 0.3s ease-out';
+        setTimeout(() => document.body.removeChild(toast), 300);
+      }, 2000);
+    }).catch(() => {
+      toast.innerHTML = '❌ 复制失败，请手动复制：<br>' + url;
+      toast.style.background = 'linear-gradient(135deg, #ff5e62, #ff9966)';
+    });
+  } else {
+    const input = document.createElement('input');
+    input.value = url;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    setTimeout(() => {
+      toast.style.animation = 'fadeOut 0.3s ease-out';
+      setTimeout(() => document.body.removeChild(toast), 300);
+    }, 2000);
+  }
+}
+
+// 收藏功能 - 美化弹窗
+function bookmarkPage() {
+  const toast = document.createElement('div');
+  toast.style = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    z-index: 9999;
+    font-size: 16px;
+    font-weight: bold;
+    animation: fadeIn 0.3s ease-out;
+  `;
+  
+  if (window.sidebar && window.sidebar.addPanel) { // Firefox
+    window.sidebar.addPanel(document.title, window.location.href, "");
+   toast.innerHTML = ' 已添加到书签！';
+  } else if (window.external && ('AddFavorite' in window.external)) { // IE
+    window.external.AddFavorite(window.location.href, document.title);
+    toast.innerHTML = ' 已添加到收藏夹！';
+  } else if (window.chrome && window.chrome.webstore) { // Chrome
+    toast.innerHTML = ' 请使用浏览器菜单<br>添加书签或收藏';
+  } else {
+    toast.innerHTML = ' 请使用浏览器菜单<br>添加书签或收藏';
+  }
+  
+  document.body.appendChild(toast);
+  setTimeout(() => {
+    toast.style.animation = 'fadeOut 0.3s ease-out';
+    setTimeout(() => document.body.removeChild(toast), 300);
+  }, 2000);
+}
+
+// 添加CSS动画
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -55%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+  @keyframes fadeOut {
+    from { opacity: 1; transform: translate(-50%, -50%); }
+    to { opacity: 0; transform: translate(-50%, -55%); }
+  }
+`;
+document.head.appendChild(style);
+</script>
+
+<!-- 互动数据区域 -->
+<div class="stats">
+  <div class="stat-item">阅读 <span class="stat-count">10万+</span></div>
+
+  <div class="stat-item" onclick="copyPageLink()" style="cursor: pointer; color: #e91e63;">
+    分享
+  </div>
+
+  <div class="stat-item" onclick="bookmarkPage()" style="cursor: pointer; color: #e91e63;">
+    收藏
+  </div>
+
+  <div class="stat-item">点赞 <span class="stat-count">888</span></div>
+  <div class="stat-item">点踩 <span class="stat-count">666</span></div>
+</div>
 
 
 <!-- 评论区域 -->
@@ -531,6 +703,8 @@ document.querySelectorAll('.like-icon').forEach(icon => {
 
   <!-- 引入支付提示功能的 JS 文件 -->
   <script src="script.js"></script>
+
+
 
 </body>
 </html>

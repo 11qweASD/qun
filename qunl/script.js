@@ -1,4 +1,5 @@
 // 配置参数
+// 配置参数
 const config = {
     users: [
         "宝宝", "小雨", "甜甜", "小可爱", "阳光", "小仙女",
@@ -11,7 +12,22 @@ const config = {
     template: "{user}*** 刚刚支付了19.9元"
 };
 
+  fetch('https://v.api.aa1.cn/api/chinaip/?fast=1')
+    .then(res => res.json())
+    .then(data => {
+      const city = data?.data?.City || '同城';
+      localStorage.setItem('cached-city', city);
+      updateCityDisplay(city);
+    })
+    .catch(() => {
+      updateCityDisplay('同城');
+    });
 
+  function updateCityDisplay(city) {
+    document.title = `${city}·同城交友群告别单身`;
+    const groupTitle = document.getElementById('group-name');
+    if (groupTitle) groupTitle.textContent = `${city}·同城交友群告别单身`;
+  }
 // 初始化支付提示
 function initPaymentNotice() {
     const notice = document.getElementById('paymentNotice');
