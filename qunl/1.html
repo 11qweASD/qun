@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>桂林·同城交友群告别单身</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #fff8f8;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+        
+        /* 顶部图片 */
+        .top-image {
+            width: 100%;          /* 保持全屏宽度 */
+            height: 350px;        /* 根据您图片中横幅比例优化后的高度 */
+            object-fit: cover;    /* 确保图片裁剪后保持视觉完整性 */
+            object-position: center; /* 聚焦图片中央内容 */
+            border-radius: 0 0 12px 12px; /* 匹配您图片中的圆角效果 */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 添加轻微阴影提升层次感 */
+        }
+        /* 顶部支付提示 */
+        .payment-notice {
+            background-color: #ffebee;
+            color: #e53935;
+            padding: 10px 15px;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        /* 群组标题区域 */
+        .group-header {
+            background-color: #fff;
+            padding: 20px 15px;
+            border-radius: 10px;
+            margin: 0 15px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .group-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #e91e63;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .group-tag {
+            display: inline-block;
+            background-color: #fce4ec;
+            color: #e91e63;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin: 0 auto 15px;
+            text-align: center;
+            display: table;
+        }
+        
+        /* 群成员区域 */
+        .group-members {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 0 15px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .members-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e91e63;
+            margin-bottom: 10px;
+        }
+        
+        .member-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .member {
+            width: calc(20% - 8px);
+            text-align: center;
+        }
+        
+        .member-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            margin: 0 auto 5px;
+            overflow: hidden;
+        }
+        
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-name {
+            font-size: 12px;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* 内容区域通用样式 */
+        .content-section {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 0 15px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e91e63;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .warning-note {
+            color: #999;
+            font-size: 12px;
+            margin-left: 5px;
+            font-weight: normal;
+        }
+        
+        .content-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* 视频播放器样式 */
+        .video-player {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            height: 0;
+            overflow: hidden;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        
+        .video-player video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+        }
+        
+        /* 评论区域样式 */
+        .comments-section {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 0 15px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .comments-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e91e63;
+            margin-bottom: 15px;
+        }
+        
+        .comment {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .comment:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        
+        .comment-content {
+            flex: 1;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: #e91e63;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .comment-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .comment-source {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        /* 福利图片 */
+        .benefit-img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        /* 底部按钮 */
+        .join-button {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部图片 -->
+<img src="https://pic1.imgdb.cn/item/685b670e58cb8da5c86dbeb1.webp" class="top-image" alt="同城交友">    
+    <!-- 顶部支付提示 -->
+    <div class="payment-notice">
+        黑羽*** 刚刚支付了9.9元
+    </div>
+    
+    <!-- 群组标题区域 -->
+    <div class="group-header">
+        <h1 class="group-name">桂林·同城交友群告别单身</h1>
+        <div class="group-tag">同城交友群</div>
+    </div>
+    
+    <!-- 群成员区域 -->
+    <div class="group-members">
+        <div class="members-title">群成员(458人)</div>
+        <div class="member-list">
+            <div class="member">
+                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/women/1.jpg" alt="头像"></div>
+                <div class="member-name">野性_萌</div>
+            </div>
+            <div class="member">
+                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/women/2.jpg" alt="头像"></div>
+                <div class="member-name">最美的太...</div>
+            </div>
+            <div class="member">
+                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/women/3.jpg" alt="头像"></div>
+                <div class="member-name">寄个拥抱</div>
+            </div>
+            <div class="member">
+                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/women/4.jpg" alt="头像"></div>
+                <div class="member-name">指尖上的...</div>
+            </div>
+            <div class="member">
+                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/women/5.jpg" alt="头像"></div>
+                <div class="member-name">木槿，花</div>
+            </div>
+            <div class="member">
+                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/men/1.jpg" alt="头像"></div>
+                <div class="member-name">孤海的浪漫</div>
+            </div>
+            <div class="member">
+                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/women/6.jpg" alt="头像"></div>
+                <div class="member-name">猫咪萝莉</div>
+            </div>
+            <div class="member">
+                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/women/7.jpg" alt="头像"></div>
+                <div class="member-name">一整个夏天</div>
+            </div>
+            <div class="member">
+                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/women/8.jpg" alt="头像"></div>
+                <div class="member-name">嘴角的美...</div>
+            </div>
+            <div class="member">
+                <div class="member-avatar"><img src="https://randomuser.me/api/portraits/women/9.jpg" alt="头像"></div>
+                <div class="member-name">软甜阮甜</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 群简介区域 -->
+    <div class="content-section">
+        <div class="section-title">群简介 <span class="warning-note">(付款即代表已读!)</span></div>
+        <div class="content-text">
+            同城交友群，加入我们，从此告别孤单和寂寞
+        </div>
+    </div>
+    
+    <!-- 常见问题区域 -->
+    <div class="content-section">
+        <div class="section-title">常见问题 <span class="warning-note">(付款即代表已读!)</span></div>
+        <div class="content-text">
+            <p><strong>退款说明</strong></p>
+            <p>一旦付费，无论何种原因概不退款(包括违规被踢出群的)，请谨慎选择，看好再买。群费不多不少，买个信任。做付费群，避免垃圾人，过滤人群，提升群质量。避免人多嘴杂，杜绝吃白食群众。付费入群更能让社群形成正向循环，是社群内容质量的保障。</p>
+            
+            <p><strong>如何进群</strong></p>
+            <p>客服<br>
+            付费后跳转，扫描二维码即可加入哦</p>
+        </div>
+    </div>
+    
+    <!-- 群活动视频 -->
+    <div class="content-section">
+        <div class="section-title">群活动视频</div>
+        <div class="video-player">
+            <video width="100%" height="100%" autoplay playsinline webkit-playsinline x5-playsinline>
+                <source src="https://zb.ccq3.cn/图片/好看吗.mp4" type="video/mp4">
+                您的浏览器不支持HTML5视频
+            </video>
+        </div>
+    </div>
+    
+
+    <!-- 入群福利 -->
+    <div class="content-section">
+        <div class="section-title">入群福利<span class="warning-note">（付款即代表已读！）</span></div>
+        <div class="content-text">
+            <img src="https://pic1.imgdb.cn/item/685b611458cb8da5c86d7a41.jpg" class="benefit-img" alt="入群福利">
+        </div>
+    </div>
+    
+    <!-- 底部按钮 -->
+    <button class="join-button">限时￥9.9元加入</button>
+
+    <script>
+        // 微信浏览器可能需要用户交互后才能自动播放
+        document.addEventListener('WeixinJSBridgeReady', function() {
+            var video = document.querySelector('video');
+            if (video) {
+                video.play();
+            }
+        }, false);
+
+        // 普通浏览器的自动播放
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.querySelector('video');
+            if (video) {
+                var promise = video.play();
+                if (promise !== undefined) {
+                    promise.catch(error => {
+                        // 自动播放被阻止，显示播放按钮
+                        video.controls = true;
+                    });
+                }
+            }
+        });
+    </script>
+
+
+
+<!-- 评论区域 -->
+<div class="comments-section">
+    <div class="comments-title">群友评论(精选)</div>
+    
+    <div class="comment">
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" class="comment-avatar" alt="头像">
+        <div class="comment-content">
+            <div class="comment-author">准风月谈</div>
+            <div class="comment-text">更多亲测源码获取公众号：创颜网络</div>
+            <div class="comment-source">来源：新浪微博</div>
+        </div>
+        <div class="comment-like">
+            <svg class="like-icon" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">128</span>
+        </div>
+    </div>
+    
+    <div class="comment">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="comment-avatar" alt="头像">
+        <div class="comment-content">
+            <div class="comment-author">风铃</div>
+            <div class="comment-text">创颜网络</div>
+            <div class="comment-source">群聊来源</div>
+        </div>
+        <div class="comment-like">
+            <svg class="like-icon" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">96</span>
+        </div>
+    </div>
+    
+    <div class="comment">
+        <img src="https://randomuser.me/api/portraits/women/33.jpg" class="comment-avatar" alt="头像">
+        <div class="comment-content">
+            <div class="comment-author">风铃</div>
+            <div class="comment-text">创颜网络</div>
+            <div class="comment-source">群聊来源</div>
+        </div>
+        <div class="comment-like">
+            <svg class="like-icon" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">87</span>
+        </div>
+    </div>
+    
+    <div class="comment">
+        <img src="https://randomuser.me/api/portraits/men/22.jpg" class="comment-avatar" alt="头像">
+        <div class="comment-content">
+            <div class="comment-author">安全等待你来</div>
+            <div class="comment-text">创颜网络</div>
+            <div class="comment-source">群聊来源</div>
+        </div>
+        <div class="comment-like">
+            <svg class="like-icon" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">75</span>
+        </div>
+    </div>
+    
+    <div class="comment">
+        <img src="https://randomuser.me/api/portraits/women/11.jpg" class="comment-avatar" alt="头像">
+        <div class="comment-content">
+            <div class="comment-author">淡淡de茶香味</div>
+            <div class="comment-text">创颜网络</div>
+            <div class="comment-source">群聊来源</div>
+        </div>
+        <div class="comment-like">
+            <svg class="like-icon" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">63</span>
+        </div>
+    </div>
+</div>
+
+<style>
+.comment {
+    position: relative;
+    padding-right: 60px; /* 为点赞区域留出空间 */
+}
+
+.comment-like {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.like-icon {
+    width: 20px;
+    height: 20px;
+    fill: #ff6b81; /* 粉色爱心 */
+    display: block;
+    margin: 0 auto 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.like-icon:hover {
+    transform: scale(1.1);
+}
+
+.like-icon.active {
+    fill: #ff4757; /* 激活状态更深的红色 */
+}
+
+.like-count {
+    font-size: 12px;
+    color: #888;
+    display: block;
+    text-align: center;
+}
+</style>
+
+<script>
+// 点赞功能实现
+document.querySelectorAll('.like-icon').forEach(icon => {
+    icon.addEventListener('click', function() {
+        const likeCount = this.nextElementSibling;
+        const isActive = this.classList.contains('active');
+        
+        if(isActive) {
+            this.classList.remove('active');
+            likeCount.textContent = parseInt(likeCount.textContent) - 1;
+        } else {
+            this.classList.add('active');
+            likeCount.textContent = parseInt(likeCount.textContent) + 1;
+        }
+    });
+});
+</script>
+ <!-- 支付提示展示区域 -->
+  <div id="paymentNotice" class="payment-notice"></div>
+
+  <!-- 你自己的页面内容写在这里 -->
+  <main>
+    <!-- 其他内容 -->
+  </main>
+
+  <!-- 引入支付提示功能的 JS 文件 -->
+  <script src="script.js"></script>
+
+</body>
+</html>

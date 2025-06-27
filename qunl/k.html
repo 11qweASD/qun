@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>微信群聊加入</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+          /* 背景色 - 可修改为其他颜色 */
+        body {
+            background-color: #000;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+         /* 头像背景色 - 可修改 */
+        .group-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+         /* 九宫格小格子颜色 - 可修改 */
+        .group-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* 群名称文字颜色 - 可修改 */
+        .group-name {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        /* 隐私提示文字颜色 - 可修改 */
+        .privacy-notice {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 30px;
+        }
+         /* 提示框背景色 - 可修改 */
+        .tips {
+            width: 100%;
+            background-color: #111;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        /* 提示文字颜色 - 可修改 */
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #999;
+            line-height: 1.4;
+        }
+        /* 提示圆点颜色 - 可修改 */
+        .tip-item:last-child {
+            margin-bottom: 0;
+        }
+        /* 按钮背景色 - 可修改 */
+        .tip-icon {
+            color: #07C160;
+            margin-right: 8px;
+            font-size: 16px;
+        } /* 按钮文字颜色 - 可修改 */
+         /* 按钮文字颜色 - 可修改 */
+        .join-button {
+            background-color: #07C160;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 16px;
+            font-weight: 500;
+            width: 100%;
+            margin-top: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="group-avatar">
+            <img src="https://pic1.imgdb.cn/item/685b670e58cb8da5c86dbeb1.webp" alt="群头像">
+        </div>
+        <div class="group-name">桂林·官方模版测试群</div>
+        <div class="privacy-notice">你和群里其他人都不是朋友关系，请注意隐私安全。</div>
+    </div>
+    
+    <div class="tips">
+        <div class="tip-item">
+            <span class="tip-icon">●</span>
+            <span>该群聊人数较多，为减少新消息给你带来的打扰，建议谨慎加入。</span>
+        </div>
+        <div class="tip-item">
+            <span class="tip-icon">●</span>
+            <span>为维护微信平台绿色网络环境，请勿在群内传播违法法规内容。</span>
+        </div>
+    </div>
+    
+    <button class="join-button">加入群聊</button>
+</body>
+</html>
