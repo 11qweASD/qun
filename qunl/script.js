@@ -11,6 +11,7 @@ const config = {
     template: "{user}*** 刚刚支付了19.9元"
 };
 
+
 // 初始化支付提示
 function initPaymentNotice() {
     const notice = document.getElementById('paymentNotice');
