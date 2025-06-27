@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title id="dynamic-title">匹配中 · 告别孤单寂寞冷</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- 预连接优化 -->
+  <link rel="preconnect" href="https://v.api.aa1.cn">
+  <link rel="dns-prefetch" href="https://v.api.aa1.cn">
+</head>
+<body>
+
+<!-- 顶部横幅 -->
+<div class="top-banner">限时特价(原价198元)活动最后3天</div>
+
+<!-- 警告区域 -->
+<div class="warning-area">
+  <div class="secret-icon">秘</div>
+  <div class="warning-text">未成年人禁止进入</div>
+</div>
+
+<!-- 群组头部信息 -->
+<div class="group-header">
+  <div id="group-name" class="group-name">匹配中 · 告别孤单寂寞冷</div>
+  <div class="group-subtitle">交友群</div>
+  <div class="member-count">群成员(458人)</div>
+</div>
+
+<!-- 成员展示区域 -->
+<div class="members-section">
+  <div class="section-title">群成员</div>
+  <div class="members-container">
+    <div class="member">
+      <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="成员头像">
+      <div class="member-name">森林小猪</div>
+    </div>
+    <div class="member">
+      <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="成员头像">
+      <div class="member-name">少女与熊</div>
+    </div>
+    <div class="member">
+      <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="成员头像">
+      <div class="member-name">牛顿问星</div>
+    </div>
+    <div class="member">
+      <img src="https://randomuser.me/api/portraits/men/23.jpg" alt="成员头像">
+      <div class="member-name">创新腾城</div>
+    </div>
+    <div class="member">
+      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="成员头像">
+      <div class="member-name">新浪鸣谢</div>
+    </div>
+    <div class="member">
+      <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="成员头像">
+      <div class="member-name">360安全</div>
+    </div>
+    <div class="member">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Ccircle cx='25' cy='25' r='23' fill='%23FFD700'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='22' fill='%23333'%3E+%3C/text%3E%3C/svg%3E" alt="加群">
+      <div class="member-name">加群</div>
+    </div>
+    <div class="member">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Ccircle cx='25' cy='25' r='23' fill='%23ccc'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='22' fill='%23333'%3E-%3C/text%3E%3C/svg%3E" alt="退群">
+      <div class="member-name">退群</div>
+    </div>
+  </div>
+</div>
+<!-- 群活动视频（改成 <video> 版本） -->
+<div class="content-section">
+  <div class="section-title">群活动视频</div>
+  <div class="video-container">
+    <div class="video-player">
+      <!-- 添加autoplay和playsinline属性，并移除controls属性 -->
+      <video width="100%" height="100%" autoplay playsinline webkit-playsinline x5-playsinline>
+        <source src="https://zb.ccq3.cn/图片/好看吗.mp4" type="video/mp4">
+        您的浏览器不支持HTML5视频
+      </video>
+    </div>
+  </div>
+</div>
+
+<style>
+.video-player {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 比例 */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-player video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+</style>
+
+<script>
+// 微信浏览器可能需要用户交互后才能自动播放
+document.addEventListener('WeixinJSBridgeReady', function() {
+  var video = document.querySelector('video');
+  if (video) {
+    video.play();
+  }
+}, false);
+
+// 普通浏览器的自动播放
+document.addEventListener('DOMContentLoaded', function() {
+  var video = document.querySelector('video');
+  if (video) {
+    var promise = video.play();
+    if (promise !== undefined) {
+      promise.catch(error => {
+        // 自动播放被阻止，显示播放按钮
+        video.controls = true;
+      });
+    }
+  }
+});
+</script>
+<!-- 群简介 -->
+<div class="content-section">
+  <div class="section-title">群简介<span class="warning-note">（付款即代表已读！）</span></div>
+  <div class="content-text">
+    <p>加入群聊，告别单身，告别孤单寂寞冷</p>
+  </div>
+</div>
+
+<!-- 常见问题 -->
+<div class="content-section">
+  <div class="section-title">常见问题<span class="warning-note">（付款即代表已读！）</span></div>
+  <div class="content-text">
+    <p>一旦付费，无论何种原因都不退款(包括违规弹翻出群的)，请谨慎选择，看好再买。群费不多不少，实个信任。做付费群，避免垃圾人，过迷人群，破坏群规。避免人多拥挤，杜地吃白食群众。付费入群更能让社群形成正向循环，是社群内容质量的保障。</p>
+  </div>
+</div>
+
+<!-- 如何进群 -->
+<div class="content-section">
+  <div class="section-title">如何进群</div>
+  <div class="content-text">
+    <p>付费后跳转，扫描二维码即可加入哦</p>
+  </div>
+</div>
+
+<!-- 入群福利 -->
+<div class="content-section">
+  <div class="section-title">入群福利<span class="warning-note">（付款即代表已读！）</span></div>
+  <div class="content-text">
+    <img src="https://pic1.imgdb.cn/item/685b611458cb8da5c86d7a41.jpg" class="benefit-img" alt="入群福利">
+  </div>
+</div>
+
+<!-- 阅读和分享 -->
+<div class="read-section">
+  <div>阅读100</div>
+  <div class="actions">
+    <div class="action-item">分享</div>
+    <div class="action-item">收藏</div>
+  </div>
+</div>
+
+<!-- 评论区域 -->
+<div class="comments-section">
+  <div class="comments-title">群友评论(精选)</div>
+  <div class="comment">
+    <img src="https://randomuser.me/api/portraits/women/65.jpg" class="comment-avatar" alt="头像">
+    <div class="comment-content">
+      <div class="comment-author">牛顿问星</div>
+      <div class="comment-text">更多本周新浪群及公众号：创新腾城</div>
+      <div class="comment-source">来源：新浪微博</div>
+    </div>
+  </div>
+  <div class="comment">
+    <img src="https://randomuser.me/api/portraits/men/52.jpg" class="comment-avatar" alt="头像">
+    <div class="comment-content">
+      <div class="comment-author">新浪鸣谢</div>
+      <div class="comment-text">我的太感谢群主了</div>
+      <div class="comment-source">群聊来源</div>
+    </div>
+  </div>
+  <div class="comment">
+    <img src="https://randomuser.me/api/portraits/women/85.jpg" class="comment-avatar" alt="头像">
+    <div class="comment-content">
+      <div class="comment-author">360安全</div>
+      <div class="comment-text">真的太感谢群主了</div>
+      <div class="comment-source">群聊来源</div>
+    </div>
+  </div>
+</div>
+
+<!-- 支付按钮 -->
+<div class="pay-button">
+  <span class="original-price">原价198元</span>
+  <span class="current-price">限时￥9.9元加入</span>
+</div>
+
+<!-- 悬浮按钮 -->
+<div class="floating-buttons">
+  <div class="floating-btn">聊</div>
+  <div class="floating-btn">我</div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

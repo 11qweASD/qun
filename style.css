@@ -1,0 +1,43 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "PingFang SC", "Helvetica Neue", sans-serif; }
+body { background: #f5f5f5; color: #333; line-height: 1.5; max-width: 600px; margin: 0 auto; padding-bottom: 60px; position: relative; }
+.top-banner { background: linear-gradient(135deg, #ffd700, #ff8c00); padding: 10px 15px; text-align: center; font-weight: bold; font-size: 15px; color: #c00; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; }
+.warning-area { background: #c00; padding: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+.secret-icon { background: #fff; width: 30px; height: 30px; border-radius: 50%; color: #c00; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 10px; font-size: 20px; }
+.warning-text { color: #fff; font-weight: bold; font-size: 16px; }
+.group-header { background: #fff; padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
+.group-name { font-size: 22px; font-weight: bold; color: #c00; margin-bottom: 5px; }
+.group-subtitle { font-size: 16px; color: #666; }
+.member-count { margin-top: 10px; font-size: 14px; color: #666; }
+.members-section { background: #fff; padding: 15px; margin-top: 10px; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.section-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; }
+.section-title::before { content: ""; display: inline-block; width: 5px; height: 20px; background: #c00; margin-right: 8px; border-radius: 2px; }
+.members-container { display: flex; flex-wrap: wrap; }
+.member { width: 20%; display: flex; flex-direction: column; align-items: center; margin-bottom: 15px; }
+.member img { width: 50px; height: 50px; border-radius: 6px; object-fit: cover; border: 2px solid #ffd700; }
+.member-name { font-size: 12px; margin-top: 5px; text-align: center; color: #666; }
+.content-section { background: #fff; padding: 15px; margin-top: 10px; border-bottom: 1px solid #eee; }
+.warning-note { color: #c00; font-size: 12px; margin-top: 5px; font-weight: bold; }
+.content-text { font-size: 14px; line-height: 1.6; margin-top: 10px; }
+.content-text p { margin-bottom: 10px; }
+.highlight { color: #c00; font-weight: bold; }
+.benefit-img { width: 100%; margin-top: 10px; border-radius: 8px; border: 1px solid #eee; }
+.video-container { width: 100%; margin: 15px 0; border-radius: 8px; overflow: hidden; }
+.video-player { width: 100%; height: 0; padding-bottom: 56.25%; position: relative; background: #000; }
+.video-player iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+.read-section { display: flex; justify-content: space-between; padding: 15px; background: #fff; margin-top: 10px; color: #888; font-size: 13px; }
+.actions { display: flex; }
+.action-item { display: flex; align-items: center; margin-left: 15px; }
+.comments-section { background: #fff; margin-top: 10px; padding: 15px; }
+.comments-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; }
+.comment { display: flex; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #f0f0f0; }
+.comment:last-child { border-bottom: none; }
+.comment-avatar { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; }
+.comment-content { flex: 1; }
+.comment-author { font-weight: bold; margin-bottom: 5px; }
+.comment-text { font-size: 14px; margin-bottom: 5px; }
+.comment-source { font-size: 12px; color: #888; }
+.pay-button { position: fixed; bottom: 0; left: 0; right: 0; background: #c00; color: #fff; text-align: center; padding: 15px; font-size: 18px; font-weight: bold; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center; z-index: 100; }
+.original-price { text-decoration: line-through; font-size: 14px; margin-right: 10px; font-weight: normal; opacity: 0.8; }
+.current-price { font-size: 22px; }
+.floating-buttons { position: fixed; right: 15px; bottom: 70px; display: flex; flex-direction: column; }
+.floating-btn { width: 45px; height: 45px; border-radius: 50%; background: #ff8c00; color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.3); }
